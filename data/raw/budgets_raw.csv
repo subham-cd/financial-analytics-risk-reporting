@@ -1,0 +1,133 @@
+fiscal_year,fiscal_month,department_code,account_code,budgeted_amount,notes,account_id,department_id
+2026,1,SLS,4010,1295000.0,FY2026-M1 Revenue target for 4010,14,2
+2026,1,SLS,4020,333000.0,FY2026-M1 Revenue target for 4020,15,2
+2026,1,SLS,4030,222000.0,FY2026-M1 Revenue target for 4030,16,2
+2026,1,OPS,5010,244200.0,Budget allocation for OPS - 5010,17,4
+2026,1,CSU,5020,162800.0,Budget allocation for CSU - 5020,18,7
+2026,1,ENG,6010,370000.0,Budget allocation for ENG - 6010,19,1
+2026,1,SLS,6020,223850.0,Budget allocation for SLS - 6020,20,2
+2026,1,MKT,6020,183150.0,Budget allocation for MKT - 6020,20,3
+2026,1,GNA,6030,222000.0,Budget allocation for GNA - 6030,21,5
+2026,1,OPS,6040,45000.0,Budget allocation for OPS - 6040,22,4
+2026,1,FIN,7010,25000.0,Budget allocation for FIN - 7010,23,6
+2026,2,SLS,4010,1330000.0,FY2026-M2 Revenue target for 4010,14,2
+2026,2,SLS,4020,342000.0,FY2026-M2 Revenue target for 4020,15,2
+2026,2,SLS,4030,228000.0,FY2026-M2 Revenue target for 4030,16,2
+2026,2,OPS,5010,250800.0,Budget allocation for OPS - 5010,17,4
+2026,2,CSU,5020,167200.0,Budget allocation for CSU - 5020,18,7
+2026,2,ENG,6010,380000.0,Budget allocation for ENG - 6010,19,1
+2026,2,SLS,6020,229900.0,Budget allocation for SLS - 6020,20,2
+2026,2,MKT,6020,188100.0,Budget allocation for MKT - 6020,20,3
+2026,2,GNA,6030,228000.0,Budget allocation for GNA - 6030,21,5
+2026,2,OPS,6040,45000.0,Budget allocation for OPS - 6040,22,4
+2026,2,FIN,7010,25000.0,Budget allocation for FIN - 7010,23,6
+2026,3,SLS,4010,1435000.0,FY2026-M3 Revenue target for 4010,14,2
+2026,3,SLS,4020,369000.0,FY2026-M3 Revenue target for 4020,15,2
+2026,3,SLS,4030,246000.0,FY2026-M3 Revenue target for 4030,16,2
+2026,3,OPS,5010,270600.0,Budget allocation for OPS - 5010,17,4
+2026,3,CSU,5020,180400.0,Budget allocation for CSU - 5020,18,7
+2026,3,ENG,6010,410000.0,Budget allocation for ENG - 6010,19,1
+2026,3,SLS,6020,248050.0,Budget allocation for SLS - 6020,20,2
+2026,3,MKT,6020,202950.0,Budget allocation for MKT - 6020,20,3
+2026,3,GNA,6030,246000.0,Budget allocation for GNA - 6030,21,5
+2026,3,OPS,6040,45000.0,Budget allocation for OPS - 6040,22,4
+2026,3,FIN,7010,25000.0,Budget allocation for FIN - 7010,23,6
+2026,4,SLS,4010,1400000.0,FY2026-M4 Revenue target for 4010,14,2
+2026,4,SLS,4020,360000.0,FY2026-M4 Revenue target for 4020,15,2
+2026,4,SLS,4030,240000.0,FY2026-M4 Revenue target for 4030,16,2
+2026,4,OPS,5010,264000.0,Budget allocation for OPS - 5010,17,4
+2026,4,CSU,5020,176000.0,Budget allocation for CSU - 5020,18,7
+2026,4,ENG,6010,400000.0,Budget allocation for ENG - 6010,19,1
+2026,4,SLS,6020,242000.0,Budget allocation for SLS - 6020,20,2
+2026,4,MKT,6020,198000.0,Budget allocation for MKT - 6020,20,3
+2026,4,GNA,6030,240000.0,Budget allocation for GNA - 6030,21,5
+2026,4,OPS,6040,45000.0,Budget allocation for OPS - 6040,22,4
+2026,4,FIN,7010,25000.0,Budget allocation for FIN - 7010,23,6
+2026,5,SLS,4010,1505000.0,FY2026-M5 Revenue target for 4010,14,2
+2026,5,SLS,4020,387000.0,FY2026-M5 Revenue target for 4020,15,2
+2026,5,SLS,4030,258000.0,FY2026-M5 Revenue target for 4030,16,2
+2026,5,OPS,5010,283800.0,Budget allocation for OPS - 5010,17,4
+2026,5,CSU,5020,189200.0,Budget allocation for CSU - 5020,18,7
+2026,5,ENG,6010,430000.0,Budget allocation for ENG - 6010,19,1
+2026,5,SLS,6020,260150.0,Budget allocation for SLS - 6020,20,2
+2026,5,MKT,6020,212850.0,Budget allocation for MKT - 6020,20,3
+2026,5,GNA,6030,258000.0,Budget allocation for GNA - 6030,21,5
+2026,5,OPS,6040,45000.0,Budget allocation for OPS - 6040,22,4
+2026,5,FIN,7010,25000.0,Budget allocation for FIN - 7010,23,6
+2026,6,SLS,4010,1575000.0,FY2026-M6 Revenue target for 4010,14,2
+2026,6,SLS,4020,405000.0,FY2026-M6 Revenue target for 4020,15,2
+2026,6,SLS,4030,270000.0,FY2026-M6 Revenue target for 4030,16,2
+2026,6,OPS,5010,297000.0,Budget allocation for OPS - 5010,17,4
+2026,6,CSU,5020,198000.0,Budget allocation for CSU - 5020,18,7
+2026,6,ENG,6010,450000.0,Budget allocation for ENG - 6010,19,1
+2026,6,SLS,6020,272250.0,Budget allocation for SLS - 6020,20,2
+2026,6,MKT,6020,222750.0,Budget allocation for MKT - 6020,20,3
+2026,6,GNA,6030,270000.0,Budget allocation for GNA - 6030,21,5
+2026,6,OPS,6040,45000.0,Budget allocation for OPS - 6040,22,4
+2026,6,FIN,7010,25000.0,Budget allocation for FIN - 7010,23,6
+2026,7,SLS,4010,1540000.0,FY2026-M7 Revenue target for 4010,14,2
+2026,7,SLS,4020,396000.0,FY2026-M7 Revenue target for 4020,15,2
+2026,7,SLS,4030,264000.0,FY2026-M7 Revenue target for 4030,16,2
+2026,7,OPS,5010,290400.0,Budget allocation for OPS - 5010,17,4
+2026,7,CSU,5020,193600.0,Budget allocation for CSU - 5020,18,7
+2026,7,ENG,6010,440000.0,Budget allocation for ENG - 6010,19,1
+2026,7,SLS,6020,266200.0,Budget allocation for SLS - 6020,20,2
+2026,7,MKT,6020,217800.0,Budget allocation for MKT - 6020,20,3
+2026,7,GNA,6030,264000.0,Budget allocation for GNA - 6030,21,5
+2026,7,OPS,6040,45000.0,Budget allocation for OPS - 6040,22,4
+2026,7,FIN,7010,25000.0,Budget allocation for FIN - 7010,23,6
+2026,8,SLS,4010,1610000.0,FY2026-M8 Revenue target for 4010,14,2
+2026,8,SLS,4020,414000.0,FY2026-M8 Revenue target for 4020,15,2
+2026,8,SLS,4030,276000.0,FY2026-M8 Revenue target for 4030,16,2
+2026,8,OPS,5010,303600.0,Budget allocation for OPS - 5010,17,4
+2026,8,CSU,5020,202400.0,Budget allocation for CSU - 5020,18,7
+2026,8,ENG,6010,460000.0,Budget allocation for ENG - 6010,19,1
+2026,8,SLS,6020,278300.0,Budget allocation for SLS - 6020,20,2
+2026,8,MKT,6020,227700.0,Budget allocation for MKT - 6020,20,3
+2026,8,GNA,6030,276000.0,Budget allocation for GNA - 6030,21,5
+2026,8,OPS,6040,45000.0,Budget allocation for OPS - 6040,22,4
+2026,8,FIN,7010,25000.0,Budget allocation for FIN - 7010,23,6
+2026,9,SLS,4010,1715000.0,FY2026-M9 Revenue target for 4010,14,2
+2026,9,SLS,4020,441000.0,FY2026-M9 Revenue target for 4020,15,2
+2026,9,SLS,4030,294000.0,FY2026-M9 Revenue target for 4030,16,2
+2026,9,OPS,5010,323400.0,Budget allocation for OPS - 5010,17,4
+2026,9,CSU,5020,215600.0,Budget allocation for CSU - 5020,18,7
+2026,9,ENG,6010,490000.0,Budget allocation for ENG - 6010,19,1
+2026,9,SLS,6020,296450.0,Budget allocation for SLS - 6020,20,2
+2026,9,MKT,6020,242550.0,Budget allocation for MKT - 6020,20,3
+2026,9,GNA,6030,294000.0,Budget allocation for GNA - 6030,21,5
+2026,9,OPS,6040,45000.0,Budget allocation for OPS - 6040,22,4
+2026,9,FIN,7010,25000.0,Budget allocation for FIN - 7010,23,6
+2026,10,SLS,4010,1750000.0,FY2026-M10 Revenue target for 4010,14,2
+2026,10,SLS,4020,450000.0,FY2026-M10 Revenue target for 4020,15,2
+2026,10,SLS,4030,300000.0,FY2026-M10 Revenue target for 4030,16,2
+2026,10,OPS,5010,330000.0,Budget allocation for OPS - 5010,17,4
+2026,10,CSU,5020,220000.0,Budget allocation for CSU - 5020,18,7
+2026,10,ENG,6010,500000.0,Budget allocation for ENG - 6010,19,1
+2026,10,SLS,6020,302500.0,Budget allocation for SLS - 6020,20,2
+2026,10,MKT,6020,247500.0,Budget allocation for MKT - 6020,20,3
+2026,10,GNA,6030,300000.0,Budget allocation for GNA - 6030,21,5
+2026,10,OPS,6040,45000.0,Budget allocation for OPS - 6040,22,4
+2026,10,FIN,7010,25000.0,Budget allocation for FIN - 7010,23,6
+2026,11,SLS,4010,1820000.0,FY2026-M11 Revenue target for 4010,14,2
+2026,11,SLS,4020,468000.0,FY2026-M11 Revenue target for 4020,15,2
+2026,11,SLS,4030,312000.0,FY2026-M11 Revenue target for 4030,16,2
+2026,11,OPS,5010,343200.0,Budget allocation for OPS - 5010,17,4
+2026,11,CSU,5020,228800.0,Budget allocation for CSU - 5020,18,7
+2026,11,ENG,6010,520000.0,Budget allocation for ENG - 6010,19,1
+2026,11,SLS,6020,314600.0,Budget allocation for SLS - 6020,20,2
+2026,11,MKT,6020,257400.0,Budget allocation for MKT - 6020,20,3
+2026,11,GNA,6030,312000.0,Budget allocation for GNA - 6030,21,5
+2026,11,OPS,6040,45000.0,Budget allocation for OPS - 6040,22,4
+2026,11,FIN,7010,25000.0,Budget allocation for FIN - 7010,23,6
+2026,12,SLS,4010,1960000.0,FY2026-M12 Revenue target for 4010,14,2
+2026,12,SLS,4020,504000.0,FY2026-M12 Revenue target for 4020,15,2
+2026,12,SLS,4030,336000.0,FY2026-M12 Revenue target for 4030,16,2
+2026,12,OPS,5010,369600.0,Budget allocation for OPS - 5010,17,4
+2026,12,CSU,5020,246400.0,Budget allocation for CSU - 5020,18,7
+2026,12,ENG,6010,560000.0,Budget allocation for ENG - 6010,19,1
+2026,12,SLS,6020,338800.0,Budget allocation for SLS - 6020,20,2
+2026,12,MKT,6020,277200.0,Budget allocation for MKT - 6020,20,3
+2026,12,GNA,6030,336000.0,Budget allocation for GNA - 6030,21,5
+2026,12,OPS,6040,45000.0,Budget allocation for OPS - 6040,22,4
+2026,12,FIN,7010,25000.0,Budget allocation for FIN - 7010,23,6
