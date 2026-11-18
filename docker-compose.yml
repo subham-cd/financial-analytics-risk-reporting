@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  # Database Service (PostgreSQL Production Engine)
+  db:
+    image: postgres:16-alpine
+    container_name: finsight_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-finsight_admin}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-secure_finsight_pass_2026}
+      POSTGRES_DB: ${POSTGRES_DB:-finsight_db}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql
+    networks:
+      - finsight_net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U finsight_admin -d finsight_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # FinSight Backend API & Web Application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: finsight_app
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://finsight_admin:secure_finsight_pass_2026@db:5432/finsight_db
+      APP_ENV: production
+      PORT: 8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./reports:/app/reports
+      - ./data:/app/data
+    networks:
+      - finsight_net
+
+networks:
+  finsight_net:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local
