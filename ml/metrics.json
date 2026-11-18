@@ -1,0 +1,107 @@
+{
+    "model_type": "Logistic Regression with Weight of Evidence",
+    "sample_size": 5000,
+    "train_size": 4000,
+    "test_size": 1000,
+    "overall_default_rate_pct": 16.38,
+    "evaluation_metrics": {
+        "roc_auc": 0.8469,
+        "accuracy": 0.865,
+        "precision": 0.6381,
+        "recall": 0.4085,
+        "f1_score": 0.4981,
+        "optimal_decision_threshold": 0.2071,
+        "confusion_matrix": {
+            "true_negatives": 798,
+            "false_positives": 38,
+            "false_negatives": 97,
+            "true_positives": 67
+        }
+    },
+    "information_value_summary": [
+        {
+            "Feature": "loan_grade",
+            "Information_Value": 1.661,
+            "Predictive_Strength": "Very Strong / Suspicious (>0.50)",
+            "Bins_Count": 6
+        },
+        {
+            "Feature": "interest_rate",
+            "Information_Value": 1.4479,
+            "Predictive_Strength": "Very Strong / Suspicious (>0.50)",
+            "Bins_Count": 5
+        },
+        {
+            "Feature": "revolving_utilization_pct",
+            "Information_Value": 1.2745,
+            "Predictive_Strength": "Very Strong / Suspicious (>0.50)",
+            "Bins_Count": 5
+        },
+        {
+            "Feature": "debt_to_income_ratio",
+            "Information_Value": 1.0848,
+            "Predictive_Strength": "Very Strong / Suspicious (>0.50)",
+            "Bins_Count": 5
+        },
+        {
+            "Feature": "derogatory_records",
+            "Information_Value": 0.349,
+            "Predictive_Strength": "Strong (0.30-0.50)",
+            "Bins_Count": 4
+        },
+        {
+            "Feature": "home_ownership",
+            "Information_Value": 0.0319,
+            "Predictive_Strength": "Weak (0.02-0.10)",
+            "Bins_Count": 4
+        },
+        {
+            "Feature": "total_credit_accounts",
+            "Information_Value": 0.0217,
+            "Predictive_Strength": "Weak (0.02-0.10)",
+            "Bins_Count": 5
+        },
+        {
+            "Feature": "annual_income",
+            "Information_Value": 0.018,
+            "Predictive_Strength": "Unpredictive (<0.02)",
+            "Bins_Count": 5
+        },
+        {
+            "Feature": "open_credit_accounts",
+            "Information_Value": 0.0173,
+            "Predictive_Strength": "Unpredictive (<0.02)",
+            "Bins_Count": 5
+        },
+        {
+            "Feature": "loan_term_months",
+            "Information_Value": 0.0079,
+            "Predictive_Strength": "Unpredictive (<0.02)",
+            "Bins_Count": 2
+        },
+        {
+            "Feature": "loan_purpose",
+            "Information_Value": 0.0071,
+            "Predictive_Strength": "Unpredictive (<0.02)",
+            "Bins_Count": 6
+        },
+        {
+            "Feature": "loan_amount",
+            "Information_Value": 0.0068,
+            "Predictive_Strength": "Unpredictive (<0.02)",
+            "Bins_Count": 5
+        },
+        {
+            "Feature": "employment_length_years",
+            "Information_Value": 0.0064,
+            "Predictive_Strength": "Unpredictive (<0.02)",
+            "Bins_Count": 4
+        }
+    ],
+    "best_hyperparameters": {
+        "C": 1.0,
+        "class_weight": null,
+        "penalty": "l2",
+        "solver": "lbfgs"
+    }
+}
