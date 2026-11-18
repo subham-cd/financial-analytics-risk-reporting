@@ -1,0 +1,111 @@
+/// ============================================================================
+/// FinSight Platform - Qlik Sense Master Load Script (Part 1: Financial Ledger)
+/// System: Qlik Sense Enterprise / Qlik Cloud Analytics
+/// Author: FinSight BI Engineering
+/// Purpose: Ingest and transform financial transactions, chart of accounts, and budgets
+/// ============================================================================
+
+SET ThousandSep=',';
+SET DecimalSep='.';
+SET MoneyThousandSep=',';
+SET MoneyDecimalSep='.';
+SET MoneyFormat='$#,##0.00;($#,##0.00)';
+SET TimeFormat='h:mm:ss TT';
+SET DateFormat='YYYY-MM-DD';
+SET TimestampFormat='YYYY-MM-DD h:mm:ss[.fff] TT';
+SET MonthNames='Jan;Feb;Mar;Apr;May;Jun;Jul;Aug;Sep;Oct;Nov;Dec';
+SET DayNames='Mon;Tue;Wed;Thu;Fri;Sat;Sun';
+
+// ----------------------------------------------------------------------------
+// 1. Departments Master Table
+// ----------------------------------------------------------------------------
+[Departments]:
+LOAD 
+    department_id AS DepartmentID,
+    department_code AS DepartmentCode,
+    department_name AS DepartmentName,
+    cost_center AS CostCenter,
+    manager_name AS ManagerName
+FROM [lib://FinSight_Data/departments.csv]
+(txt, utf8, embedded labels, delimiter is ',', msq);
+
+// ----------------------------------------------------------------------------
+// 2. Chart of Accounts Master Table
+// ----------------------------------------------------------------------------
+[ChartOfAccounts]:
+LOAD 
+    account_id AS AccountID,
+    account_code AS AccountCode,
+    account_name AS AccountName,
+    account_type AS AccountType,
+    sub_category AS SubCategory,
+    normal_balance AS NormalBalance,
+    is_active AS IsActive
+FROM [lib://FinSight_Data/chart_of_accounts.csv]
+(txt, utf8, embedded labels, delimiter is ',', msq);
+
+// ----------------------------------------------------------------------------
+// 3. Transactions Ledger Fact Table
+// ----------------------------------------------------------------------------
+[Transactions]:
+LOAD 
+    transaction_id AS TransactionID,
+    Date(transaction_date) AS TransactionDate,
+    fiscal_year AS FiscalYear,
+    fiscal_month AS FiscalMonth,
+    fiscal_quarter AS FiscalQuarter,
+    'Q' & fiscal_quarter & '-' & fiscal_year AS QuarterYear,
+    Month(Date#(fiscal_month, 'M')) & '-' & fiscal_year AS MonthYear,
+    account_id AS AccountID,
+    department_id AS DepartmentID,
+    transaction_category AS TransactionCategory,
+    debit_amount AS DebitAmount,
+    credit_amount AS CreditAmount,
+    // Calculate signed net transaction amount based on account type
+    IF(AccountType = 'Revenue', credit_amount - debit_amount, debit_amount - credit_amount) AS NetAmount,
+    description AS TransactionDescription,
+    reference_no AS ReferenceNo
+FROM [lib://FinSight_Data/transactions.csv]
+(txt, utf8, embedded labels, delimiter is ',', msq);
+
+// ----------------------------------------------------------------------------
+// 4. Budgets Fact Table
+// ----------------------------------------------------------------------------
+[Budgets]:
+LOAD 
+    budget_id AS BudgetID,
+    fiscal_year AS FiscalYear,
+    fiscal_month AS FiscalMonth,
+    department_id AS DepartmentID,
+    account_id AS AccountID,
+    budgeted_amount AS BudgetedAmount,
+    notes AS BudgetNotes
+FROM [lib://FinSight_Data/budgets.csv]
+(txt, utf8, embedded labels, delimiter is ',', msq);
+
+// ----------------------------------------------------------------------------
+// 5. Master Calendar Generation
+// ----------------------------------------------------------------------------
+MinMaxDate:
+LOAD 
+    Min(TransactionDate) AS MinDate,
+    Max(TransactionDate) AS MaxDate
+RESIDENT Transactions;
+
+LET vMinDate = Peek('MinDate', 0, 'MinMaxDate');
+LET vMaxDate = Peek('MaxDate', 0, 'MinMaxDate');
+DROP TABLE MinMaxDate;
+
+[MasterCalendar]:
+LOAD
+    TempDate AS TransactionDate,
+    Year(TempDate) AS CalYear,
+    Month(TempDate) AS CalMonth,
+    Day(TempDate) AS CalDay,
+    'Q' & Ceil(Month(TempDate)/3) AS CalQuarter,
+    Date(MonthStart(TempDate), 'YYYY-MMM') AS YearMonth
+;
+LOAD 
+    Date($(vMinDate) + IterNo() - 1) AS TempDate
+AUTOGENERATE 1
+WHILE $(vMinDate) + IterNo() - 1 <= $(vMaxDate);

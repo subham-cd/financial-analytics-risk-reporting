@@ -1,0 +1,74 @@
+/// ============================================================================
+/// FinSight Platform - Qlik Sense Master Load Script (Part 2: Credit Risk)
+/// System: Qlik Sense Enterprise / Qlik Cloud Analytics
+/// Author: FinSight BI Engineering
+/// Purpose: Ingest and model Borrowers, Loans, and ML Credit Risk Predictions
+/// ============================================================================
+
+// ----------------------------------------------------------------------------
+// 1. Borrowers Master Table
+// ----------------------------------------------------------------------------
+[Borrowers]:
+LOAD 
+    borrower_id AS BorrowerID,
+    external_id AS BorrowerExternalID,
+    first_name & ' ' & last_name AS BorrowerFullName,
+    annual_income AS AnnualIncome,
+    employment_length_years AS EmploymentLengthYears,
+    home_ownership AS HomeOwnership,
+    state_code AS StateCode,
+    // Income Tier segmentation
+    IF(annual_income < 40000, 'Low Income (<$40k)',
+       IF(annual_income < 80000, 'Middle Income ($40k-$80k)',
+       IF(annual_income < 120000, 'Upper-Middle ($80k-$120k)', 'Affluent (>$120k)'))) AS IncomeTier
+FROM [lib://FinSight_Data/borrowers.csv]
+(txt, utf8, embedded labels, delimiter is ',', msq);
+
+// ----------------------------------------------------------------------------
+// 2. Loans Fact Table
+// ----------------------------------------------------------------------------
+[Loans]:
+LOAD 
+    loan_id AS LoanID,
+    borrower_id AS BorrowerID,
+    loan_amount AS LoanAmount,
+    loan_term_months AS LoanTermMonths,
+    loan_term_months & ' Months' AS LoanTermLabel,
+    interest_rate AS InterestRate,
+    installment_amount AS InstallmentAmount,
+    loan_grade AS LoanGrade,
+    debt_to_income_ratio AS DTI,
+    // DTI Tier Segmentation
+    IF(debt_to_income_ratio < 15, 'Low DTI (<15%)',
+       IF(debt_to_income_ratio < 25, 'Moderate DTI (15-25%)',
+       IF(debt_to_income_ratio < 35, 'High DTI (25-35%)', 'Critical DTI (>35%)'))) AS DTITier,
+    revolving_utilization_pct AS RevolvingUtilization,
+    total_credit_accounts AS TotalCreditAccounts,
+    open_credit_accounts AS OpenCreditAccounts,
+    derogatory_records AS DerogatoryRecords,
+    loan_purpose AS LoanPurpose,
+    loan_status AS LoanStatus,
+    is_default AS IsDefault,
+    IF(is_default = 1, 'Defaulted / Charged Off', 'Performing / Fully Paid') AS LoanPerformanceStatus
+FROM [lib://FinSight_Data/loans.csv]
+(txt, utf8, embedded labels, delimiter is ',', msq);
+
+// ----------------------------------------------------------------------------
+// 3. Credit Risk Predictions & Scorecard Fact Table
+// ----------------------------------------------------------------------------
+[CreditPredictions]:
+LOAD 
+    prediction_id AS PredictionID,
+    loan_id AS LoanID,
+    borrower_id AS BorrowerID,
+    predicted_prob_default AS PredictedDefaultProb,
+    credit_score AS CreditScore,
+    risk_band AS RiskBand,
+    // FICO Standard Tier Mapping
+    IF(credit_score >= 720, '1. Prime (720-850)',
+       IF(credit_score >= 650, '2. Near Prime (650-719)',
+       IF(credit_score >= 580, '3. Subprime (580-649)', '4. Deep Subprime (<580)'))) AS CreditScoreTier,
+    woe_score AS TotalWOEScore,
+    model_version AS ModelVersion
+FROM [lib://FinSight_Data/credit_predictions.csv]
+(txt, utf8, embedded labels, delimiter is ',', msq);
